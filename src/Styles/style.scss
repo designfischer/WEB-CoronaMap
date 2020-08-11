@@ -1,0 +1,380 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;900&display=swap');
+
+$standardSpace: 16px;
+$fontStyle: $standardSpace 'Roboto Slab', sans-serif;
+
+$darkColor: #333333;
+$lessDarkColor: #888888;
+$mainColor: #187FA8;
+$secondaryColor: #1846a8;
+$tertiaryColor: #4f18a8;
+$boxShadow: 5px 5px 10px $lessDarkColor;
+$lighGrey: #cccccc;
+
+$maxWidht: 1000px;
+
+* {
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font: $fontStyle;
+    color: $darkColor;
+    width: 100vw;
+    height: 100vh;
+    background: white;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+button {
+    cursor: pointer;
+    color: white;
+    background: $mainColor;
+    border: none;
+    height: $standardSpace*2.5;
+    width: 100%;
+    max-width: $maxWidht/4;
+
+    &:hover {
+        background: $secondaryColor;
+    }
+}
+
+nav {
+    height: 20vh;    
+    max-width: $maxWidht;
+    width: 100%;
+
+    font-size: $standardSpace*.75;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+main {
+    height: 70vh;    
+    max-width: $maxWidht;
+    width: 100%;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;    
+
+    div {
+        max-width: $maxWidht/2;
+        width: 100%;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        img {
+            max-width: 80%;
+        }
+
+        h1 {
+            font-size: $standardSpace*4;
+            font-weight: 900;   
+            margin: $standardSpace 0;         
+        }
+
+        h2 {
+            font-size: $standardSpace*2;
+            font-weight: 400;
+            margin: $standardSpace*.25 0;
+        }
+
+        h3 {
+            font-size: $standardSpace;
+            font-weight: 400;
+            margin: $standardSpace 0;
+        }
+    }
+}
+
+footer {
+    height: 10vh;    
+    max-width: $maxWidht;
+    width: 100%;
+
+    background: white;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    h2 {
+        font-size: $standardSpace/2;
+        font-weight: 900;        
+    }
+
+    h3 {
+        font-size: $standardSpace/2;
+        font-weight: 400;       
+    }
+}
+
+.modal {
+    position: fixed;
+    background: rgba($color: $darkColor, $alpha: .5);
+
+    left: 0;
+    top: 0;
+
+    width: 100vw;
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    section {
+        box-shadow: $boxShadow;
+        background: white;
+        max-width: $maxWidht/2;
+        width: 100%;
+        padding: $standardSpace;
+
+        position: relative;
+
+        button {
+            width: 100%;
+        }
+
+        .close-button {
+            position: absolute;
+            right: +$standardSpace;
+            top: -$standardSpace;
+
+            width: $standardSpace*2;
+            height: $standardSpace*2;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;            
+
+            .sending-message {
+                min-height: $standardSpace*15;
+                align-self: center;
+                margin-top: $standardSpace*10;
+            }
+
+            .fieldset {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                grid-gap: $standardSpace;
+
+                margin: $standardSpace 0;      
+            }
+
+            h2 {
+                margin-top: $standardSpace;
+            }
+
+            button {
+                max-width: $maxWidht;                
+            }
+
+            input {
+                height: $standardSpace*2.5;
+                padding: 0 $standardSpace;
+                margin-top: $standardSpace;
+                border: none;
+                background: $lighGrey;
+            }
+
+            .fieldset-2 {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                grid-gap: $standardSpace;
+                margin-bottom: $standardSpace*2;
+            }
+
+            .select-fieldset {
+                display: grid;
+                grid-template-columns: 1fr 7fr;
+                grid-gap: $standardSpace;
+
+                margin-top: $standardSpace;
+
+                select {
+                    height: $standardSpace*2.5;
+                    padding: 0 $standardSpace;
+                    border: none;
+                    background: $lighGrey;
+                }
+            }
+        }
+
+        .toggle-button-active {
+            position: static;
+            background: $mainColor;
+            color: white;
+        }
+
+        .toggle-button-unactive {
+            position: static;
+            background: $lighGrey;
+            color: $darkColor;
+        }
+
+        button {
+            max-width: $maxWidht;
+        }
+
+        .disabled-button {
+            background: $lighGrey;
+            color: white;
+
+            &:hover {
+                background: $lighGrey;
+                color: white;
+            }
+        }
+    }
+    
+}
+
+.marker-button-confirmed {
+    width: $standardSpace*2;
+    height: $standardSpace*2;
+    background: $tertiaryColor;
+    border-radius: 50%;
+}
+
+.marker-button {
+    width: $standardSpace*2;
+    height: $standardSpace*2;
+    background: $mainColor;
+    border-radius: 50%;
+}
+
+.marker {    
+    width: $maxWidht/2;    
+
+    padding: $standardSpace*2;
+
+    h2 {
+        margin-top: $standardSpace;
+        font-size: $standardSpace*1.5;
+    }
+
+    h3 {
+        margin-top: $standardSpace;
+        font-size: $standardSpace;
+    }
+
+    ul {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;  
+        grid-gap: $standardSpace;
+
+        margin: $standardSpace 0; 
+
+        li {
+            list-style: none;            
+            
+            background: $lighGrey;
+            color: white;
+
+            width: 100%;
+            min-height: $standardSpace*4.5;
+
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            justify-content: center;
+
+            p {
+                font-size: $standardSpace*.75;
+            }
+        }
+
+        .li-confirmed {
+            background: $mainColor;
+        }
+    }
+}
+
+.map-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    width: 100vw;
+    height: 100vh;
+    
+}
+
+.search-params-container {
+    width: 100vw;
+    max-height: 20vh;
+    height: 100%;
+    position: absolute;
+    z-index: 100;
+
+    background: transparent;
+    display: flex;
+    top: $standardSpace;
+    justify-content: center;  
+    overflow: hidden; 
+
+    .search-params {       
+        background: white;
+        max-width: $maxWidht;
+        height: 100%;
+        width: 100%;        
+        
+        padding: $standardSpace*2;
+        
+        display: grid;
+        grid-template-columns: 1fr 1fr 2fr;
+        grid-gap: $standardSpace;
+
+        align-items: center;
+
+        h1 {
+            font-size: $standardSpace*2;            
+        }
+
+        h2 {
+            font-size: $standardSpace*1.5;
+        }
+
+        h3 {
+            font-size: $standardSpace;
+            color: $mainColor;            
+        }
+
+        form {            
+            width: 100%;   
+            display: grid;
+            grid-template-columns: 1fr 2fr 5fr 1fr;
+            grid-gap: $standardSpace;   
+
+            p {
+                font-size: $standardSpace*.5;
+                align-self: center;
+                justify-self: flex-end;
+            }
+
+            input {
+                background: $lighGrey;
+                border: none;
+                padding: 0 $standardSpace;
+                height: 2.5*$standardSpace;
+            }     
+        }
+    }
+}
+
